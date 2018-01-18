@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    _dataArray = [NSMutableArray arrayWithArray:@[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"]];
+    _dataArray = [NSMutableArray arrayWithArray:@[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16"]];
     
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 20) style:1];
@@ -40,6 +40,10 @@
     
     [_tableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.and.bottom.equalTo(self.view);
+        make.top.equalTo(self.view).offset(20);
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -73,7 +77,21 @@
 
 ///高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    return 100;
+    switch (indexPath.section%3) {
+        case 0:
+            return 50;
+            break;
+        case 1:
+            return 80;
+            break;
+        case 2:
+            return 110;
+            break;
+            
+        default:
+            break;
+    }
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.1;

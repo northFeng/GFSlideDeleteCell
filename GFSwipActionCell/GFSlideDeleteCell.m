@@ -82,10 +82,15 @@ CGFloat TemporarySwipeMaxWidth;
         _cellScroller = [[UIView alloc] init];
         _cellScroller.backgroundColor = [UIColor whiteColor];
         _cellScroller.clipsToBounds = YES;
+        
+        //设置约束
+        _cellScroller.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:_cellScroller attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+        NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:_cellScroller attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+        NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:_cellScroller attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+        NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:_cellScroller attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:0];
         [self addSubview:_cellScroller];
-        [_cellScroller mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-        }];
+        [self addConstraints:@[topConstraint,leftConstraint,bottomConstraint,rightConstraint]];
     
         //注册通知
         //tableView滑动的通知
@@ -131,21 +136,14 @@ CGFloat TemporarySwipeMaxWidth;
         
         //设置约束
         if (i == 0) {
-            [btnAction mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerY.equalTo(self.contentView);
-                make.right.equalTo(self.contentView);
-                make.height.mas_equalTo(self.frame.size.height);
-                make.width.mas_equalTo(btnAction.actionWidth);
-            }];
+            btnAction.frame = CGRectMake(_cellWidth - btnAction.actionWidth, 0, btnAction.actionWidth, _cellHeight);
         }else{
             GFSwipeActionBtn *supBtnAction = arrayButton[i - 1];
-            
-            [btnAction mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerY.and.height.equalTo(supBtnAction);
-                make.right.equalTo(supBtnAction.mas_left);
-                make.width.mas_equalTo(btnAction.actionWidth);
-            }];
+            btnAction.frame = CGRectMake(_cellWidth - (btnAction.actionWidth + supBtnAction.actionWidth), 0, btnAction.actionWidth, _cellHeight);
         }
+        //设置自动布局（视图的左边距是变化的）
+        btnAction.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        
         //把图层设置最后
         [self.contentView sendSubviewToBack:btnAction];
         
@@ -266,9 +264,7 @@ CGFloat TemporarySwipeMaxWidth;
     [UIView animateWithDuration:0.1 animations:^{
         _cellScroller.frame = CGRectMake( 0, 0, _cellWidth, _cellHeight);
     } completion:^(BOOL finished) {
-        [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-        }];
+
     }];
 }
 
@@ -282,9 +278,7 @@ CGFloat TemporarySwipeMaxWidth;
         [UIView animateWithDuration:0.1 animations:^{
             _cellScroller.frame = CGRectMake( 0, 0, self.frame.size.width, self.frame.size.height);
         } completion:^(BOOL finished) {
-            [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-            }];
+
             //先移除旧的按钮
             NSArray *arrayBtn = self.contentView.subviews;
             for (UIView *obj in arrayBtn) {
@@ -309,9 +303,7 @@ CGFloat TemporarySwipeMaxWidth;
         [UIView animateWithDuration:0.1 animations:^{
             _cellScroller.frame = CGRectMake( 0, 0, self.frame.size.width, self.frame.size.height);
         } completion:^(BOOL finished) {
-            [_cellScroller mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self).insets(UIEdgeInsetsMake(0, 0, 0, 0));
-            }];
+
             //先移除旧的按钮
             NSArray *arrayBtn = self.contentView.subviews;
             for (UIView *obj in arrayBtn) {

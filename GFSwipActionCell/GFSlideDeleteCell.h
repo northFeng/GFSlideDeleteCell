@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#warning 这里引入masonry这个库，因为实现用到了这个库
-#import "Masonry.h"
-
 @class GFSlideDeleteCell;
 //**********************************************
 //************* 自定义cell代理 ******************
