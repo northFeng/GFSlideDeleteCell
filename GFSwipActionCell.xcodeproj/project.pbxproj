@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C2DDFAF2011C21B00B5F844 /* HHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DDFAE2011C21B00B5F844 /* HHViewController.m */; };
 		7C50E339200DCB77003321FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C50E338200DCB77003321FC /* AppDelegate.m */; };
 		7C50E33C200DCB77003321FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C50E33B200DCB77003321FC /* ViewController.m */; };
 		7C50E33F200DCB77003321FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C50E33D200DCB77003321FC /* Main.storyboard */; };
@@ -50,8 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C2DDFAD2011C21B00B5F844 /* HHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHViewController.h; sourceTree = "<group>"; };
-		7C2DDFAE2011C21B00B5F844 /* HHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHViewController.m; sourceTree = "<group>"; };
 		7C50E334200DCB76003321FC /* GFSwipActionCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GFSwipActionCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C50E337200DCB77003321FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7C50E338200DCB77003321FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -156,8 +153,6 @@
 				7C50E338200DCB77003321FC /* AppDelegate.m */,
 				7C50E36A200DCBBC003321FC /* GFSlideDeleteCell.h */,
 				7C50E369200DCBBC003321FC /* GFSlideDeleteCell.m */,
-				7C2DDFAD2011C21B00B5F844 /* HHViewController.h */,
-				7C2DDFAE2011C21B00B5F844 /* HHViewController.m */,
 				7C50E394200DD37C003321FC /* CustomTableViewCell.h */,
 				7C50E395200DD37C003321FC /* CustomTableViewCell.m */,
 				7C50E33A200DCB77003321FC /* ViewController.h */,
@@ -368,7 +363,6 @@
 				7C50E38C200DCC08003321FC /* View+MASAdditions.m in Sources */,
 				7C50E389200DCC08003321FC /* MASConstraintMaker.m in Sources */,
 				7C50E38D200DCC08003321FC /* MASConstraint.m in Sources */,
-				7C2DDFAF2011C21B00B5F844 /* HHViewController.m in Sources */,
 				7C50E386200DCC08003321FC /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7C50E38A200DCC08003321FC /* MASLayoutConstraint.m in Sources */,
 				7C50E36B200DCBBD003321FC /* GFSlideDeleteCell.m in Sources */,
