@@ -72,6 +72,7 @@ CGFloat TemporarySwipeMaxWidth;
 - (void)createBaseContentView{
     
     //初始化数据
+    self.maxSlideBtnCount = 3;
     _isOrSwipe = NO;//未滑动
     _isOrTouch = NO;//未触摸
     _cellWidth = 0.;
@@ -153,7 +154,7 @@ CGFloat TemporarySwipeMaxWidth;
         //累加滑动最大宽度
         TemporarySwipeMaxWidth += btnAction.actionWidth;
         
-        if (i>=3) {
+        if (i >= self.maxSlideBtnCount) {
             //暂时设置不能超过三个按钮
             break;
         }

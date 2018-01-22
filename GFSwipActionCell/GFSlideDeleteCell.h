@@ -45,6 +45,9 @@ UIKIT_EXTERN NSNotificationName const GFTableViewSlideNotice;
 ///是否可滑动
 @property (nonatomic,assign,readonly) BOOL canSlide;
 
+///滑动按钮最大显示个数设置（默认最多为3个）
+@property (nonatomic,assign) NSInteger maxSlideBtnCount;
+
 ///代理
 @property (nonatomic,weak) id <GFSlideDeleteCellDelegate>delegate;
 
@@ -57,7 +60,7 @@ UIKIT_EXTERN NSNotificationName const GFTableViewSlideNotice;
 //**********************************************
 
 /**
- *  用户性别
+ *  滑动按钮类型
  */
 typedef NS_ENUM(NSInteger,GFSwipeActionStyle) {
     /**
