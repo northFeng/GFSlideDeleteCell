@@ -35,6 +35,9 @@
     _label.font = [UIFont systemFontOfSize:20];
     _label.textAlignment = NSTextAlignmentLeft;
     _label.backgroundColor = [UIColor grayColor];
+    
+#warning 警告！这里别出错了！
+    //不能是self.contentView
     [self.cellScroller addSubview:_label];
 }
 

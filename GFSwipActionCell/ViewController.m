@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+#import "Masonry.h"
 
 #import "CustomTableViewCell.h"
 
@@ -39,6 +40,7 @@
     _tableView.estimatedSectionFooterHeight = 0;
     
     [_tableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"cell"];
+    
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.and.bottom.equalTo(self.view);
@@ -69,6 +71,7 @@
     
     //这个设置不是cell的背景颜色，而是cell滑动按钮底部颜色
     //cell.backgroundColor = [UIColor redColor];
+    
     //这个是设置cell的背景颜色
     ((CustomTableViewCell *)cell).cellScroller.backgroundColor = [UIColor greenColor];
     
@@ -79,13 +82,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     switch (indexPath.section%3) {
         case 0:
-            return 50;
-            break;
-        case 1:
             return 80;
             break;
-        case 2:
+        case 1:
             return 110;
+            break;
+        case 2:
+            return 120;
             break;
             
         default:
